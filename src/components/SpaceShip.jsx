@@ -3,26 +3,37 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from "three"
 
-export function SpaceShip(props) {
+export function SpaceShip({ scrollProgress, ...props }) {
+    console.log("Scroll Progress:", scrollProgress);
+
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./public/models/spaceship/source/model.gltf')
+  const { nodes, materials, animations } = useGLTF('./src/assets/models/spaceship/source/model.gltf')
   const { actions } = useAnimations(animations, group)
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
 
-        //up and down 
-        group.current.position.y = THREE.MathUtils.lerp(
-            group.current.position.y,
-            Math.sin(t) * 0.1, // Adjust the amplitude (0.2) for smoother movement
-            0.1
-        );
+        if (!group.current && isNaN(scrollProgress)) {
+            return;
+        }
 
-        //left and right
-        group.current.position.x = THREE.MathUtils.lerp(
-            group.current.position.x,
-            Math.sin(t / 2) / 2,
-            0.1
-        );
+        //onscroll move
+        group.current.position.z = THREE.MathUtils.lerp(0, -10, scrollProgress);
+        group.current.rotation.x = THREE.MathUtils.lerp(0, Math.PI / 8, scrollProgress);
+ 
+
+        // // // up and down 
+        // group.current.position.y = THREE.MathUtils.lerp(
+        //     group.current.position.y,
+        //     Math.sin(t) * 0.1, // Adjust the amplitude (0.2) for smoother movement
+        //     0.1
+        // );
+
+        // // //left and right
+        // group.current.position.x = THREE.MathUtils.lerp(
+        //     group.current.position.x,
+        //     Math.sin(t / 2) / 2,
+        //     0.1
+        // );
 
         // Rotation effect for a dynamic feel
         // group.current.rotation.x = THREE.MathUtils.lerp(
@@ -46,7 +57,7 @@ export function SpaceShip(props) {
     <group ref={group} {...props} dispose={null}>
       <group name="blockbench_export">
         <group>
-          <group name="spaceship" position={[0.125, -2.75, -5]}>
+          <group name="spaceship" position={[0.125, -2.75, -5]} scale={[1, 1, 1]}>
             <group name="Body" position={[-0.188, -0.75, 0]}>
               <group name="bone5" position={[0, 0.438, 0]}>
                 <group name="bone2" position={[0.625, 0, -0.5]}>
