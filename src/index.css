@@ -1,32 +1,20 @@
-html,body,#root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body,
+#root {
   width: 100%;
-  height:100%;
-  margin:unset;
+  height: 100%;
+  margin: unset;
   background-image: url("./assets/space_bg2.jpg");
-  /* background-color: #12071f; */
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.info-background {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  width: 100%; /* Adjust width based on number of sections */
-  height: 200px;
-  display: flex;
-  align-items: center;
-  gap: 200px;
+@layer utilities {
+  .info-section-wbg {
+    @apply bg-bg_info text-white p-[20px] rounded-[10px] w-[80%] m-auto;
+  }
 }
-
-.info-section {
-  width: 300px;
-  color: #fff;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.5s ease;
-}
-
