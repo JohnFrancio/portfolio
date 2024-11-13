@@ -3,61 +3,50 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from "three"
 
-export function SpaceShip({ scrollProgress, ...props }) {
-    console.log("Scroll Progress:", scrollProgress);
+export function SpaceShip({ shipPosition, ...props }) {
 
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('./src/assets/models/spaceship/source/model.gltf')
   const { actions } = useAnimations(animations, group)
-    useFrame((state) => {
-        const t = state.clock.getElapsedTime();
+  useFrame(() => {
+    if (!group.current) return;
 
-        if (!group.current && isNaN(scrollProgress)) {
-            return;
-        }
+    // Smoothly move the spaceship based on the shipPosition state
+    group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, shipPosition, 0.1);
 
-        //onscroll move
-        group.current.position.z = THREE.MathUtils.lerp(0, -10, scrollProgress);
-        group.current.rotation.x = THREE.MathUtils.lerp(0, Math.PI / 8, scrollProgress);
+    // Bobbing effect (up and down)
+    const t = performance.now() / 1000;
+    group.current.position.y = Math.sin(t) * 0.1;
+  });
+    // useFrame((state) => {
+    //     const t = state.clock.getElapsedTime();
+
+    //     if (!group.current) {
+    //         return;
+    //     }   
+    //     group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, position, 0.1);
  
 
-        // // // up and down 
-        // group.current.position.y = THREE.MathUtils.lerp(
-        //     group.current.position.y,
-        //     Math.sin(t) * 0.1, // Adjust the amplitude (0.2) for smoother movement
-        //     0.1
-        // );
+    //     // // up and down 
+    //     group.current.position.y = THREE.MathUtils.lerp(
+    //         group.current.position.y,
+    //         Math.sin(t) * 0.1, // Adjust the amplitude (0.2) for smoother movement
+    //         0.1
+    //     );
 
-        // // //left and right
-        // group.current.position.x = THREE.MathUtils.lerp(
-        //     group.current.position.x,
-        //     Math.sin(t / 2) / 2,
-        //     0.1
-        // );
-
-        // Rotation effect for a dynamic feel
-        // group.current.rotation.x = THREE.MathUtils.lerp(
-        //     group.current.rotation.x,
-        //     Math.cos(t / 10) / 10 + 0.25,
-        //     0.1
-        // );
-        // group.current.rotation.y = THREE.MathUtils.lerp(
-        //     group.current.rotation.y,
-        //     Math.sin(t / 10) / 4,
-        //     0.1
-        // );
-        // group.current.rotation.z = THREE.MathUtils.lerp(
-        //     group.current.rotation.z,
-        //     Math.sin(t / 10) / 10,
-        //     0.1
-        // );
-    });
+    //     // //left and right
+    //     group.current.position.x = THREE.MathUtils.lerp(
+    //         group.current.position.x,
+    //         Math.sin(t / 2) / 2,
+    //         0.1
+    //     );
+    // });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="blockbench_export">
         <group>
-          <group name="spaceship" position={[0.125, -2.75, -5]} scale={[1, 1, 1]}>
+          <group name="spaceship" position={[0.125, -2.75, -5]} scale={[0.9, 0.8, 0.9]}>
             <group name="Body" position={[-0.188, -0.75, 0]}>
               <group name="bone5" position={[0, 0.438, 0]}>
                 <group name="bone2" position={[0.625, 0, -0.5]}>

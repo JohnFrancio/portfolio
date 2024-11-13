@@ -4,28 +4,29 @@ html,body,#root {
   margin:unset;
   background-image: url("./assets/space_bg2.jpg");
   /* background-color: #12071f; */
-  overflow: auto;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.info-container {
-  position: fixed;
-  top: 0;
+.info-background {
+  position: absolute;
+  top: 30%;
   left: 0;
-  width: 100%;
-  height: 100vh;
+  width: 100%; /* Adjust width based on number of sections */
+  height: 200px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  pointer-events: none;
+  gap: 200px;
 }
 
-.slide {
-  text-align: center;
+.info-section {
+  width: 300px;
   color: #fff;
-  font-size: 2rem;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
 }
+
