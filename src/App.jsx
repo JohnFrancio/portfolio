@@ -16,7 +16,7 @@ function App() {
 
     const moveShip = () => {
       setPosition((prev) => {
-        const newPos = prev + direction * 0.02; // Adjust speed (0.01) for smooth movement
+        const newPos = prev + direction * 0.01; // Adjust speed (0.01) for smooth movement
         return Math.max(0, Math.min(newPos, 10)); // Keep position between 0 and 3 (or adjust based on the number of sections)
       });
       animationFrame = requestAnimationFrame(moveShip);
