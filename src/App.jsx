@@ -47,7 +47,7 @@ function App() {
         {/* <OrbitControls/> */}
       </Canvas>
       <InfoBackground position={position} />
-      <div className="absolute bottom-20 left-[38%] md:bottom-[20px] md:left-[20px] flex items-center justify-center gap-5">
+      <div className="absolute bottom-20 left-[38%] md:left-[45%] flex items-center justify-center gap-5">
         <button onClick={handleLeftClick}><FaArrowLeft className="fill-white" size={32}/></button>
         <button onClick={handleRightClick}><FaArrowRight className="fill-white" size={32}/></button>
       </div>
