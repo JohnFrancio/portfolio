@@ -4,6 +4,7 @@ import Stars from "./components/Stars";
 import InfoBackground from "./components/InfoBackground";
 import { useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { OrbitControls } from "@react-three/drei";
 
 function App() {
   const [position, setPosition] = useState(0);
@@ -43,6 +44,7 @@ function App() {
         <SpaceShip position={position} />
         <Stars />
         <ambientLight intensity={0.9} color="#fff" />
+        {/* <OrbitControls/> */}
       </Canvas>
       <InfoBackground position={position} />
       <div className="absolute bottom-0 left-[40%] md:bottom-[20px] md:left-[20px] flex items-center justify-center gap-5">

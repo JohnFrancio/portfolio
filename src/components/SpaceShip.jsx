@@ -7,7 +7,7 @@ export function SpaceShip({ position, ...props }) {
 
   const group = useRef()
   const clockRef = useRef(new THREE.Clock());
-  const { nodes, materials, animations } = useGLTF('./src/assets/models/spaceship/source/model.gltf')
+  const { nodes, materials, animations } = useGLTF('/models/spaceship/source/model.gltf')
   const { actions } = useAnimations(animations, group)
   useFrame(() => {
     const t = clockRef.current.getElapsedTime(); 
