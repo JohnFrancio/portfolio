@@ -4,7 +4,7 @@ import "../index.css";
 function InfoBackground({ position }) {
 
   return (
-    <div className="absolute top-[30%] left-0 right-0 mx-auto flex items-center justify-center">
+    <div className="absolute top-[25%] left-0 right-0 mx-auto flex items-center justify-center">
       {/* Project Section */}
       <div className="info-section-wbg relative" style={{ transform: `translateX(${position * -50}px)` }}>
         <p>Hello, I'm <span className="font-poppins text-2xl animate-pulse">John Francio</span>, a Frontend JavaScript Developer</p>

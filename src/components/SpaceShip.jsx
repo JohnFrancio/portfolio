@@ -32,7 +32,7 @@ export function SpaceShip({ position, ...props }) {
     <group ref={group} {...props} dispose={null}>
       <group name="blockbench_export">
         <group>
-          <group name="spaceship" position={[0.125, -2.75, -5]} scale={[0.7, 0.7, 0.7]}>
+          <group name="spaceship" position={[0.125, -2.05, -5]} scale={[0.7, 0.7, 0.7]}>
             <group name="Body" position={[-0.188, -0.75, 0]}>
               <group name="bone5" position={[0, 0.438, 0]}>
                 <group name="bone2" position={[0.625, 0, -0.5]}>
