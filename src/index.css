@@ -15,10 +15,10 @@ body,
 
 @layer utilities {
   .info-section-wbg {
-    @apply bg-bg_info text-white p-[20px] rounded-[10px] m-auto;
+    @apply bg-bg_info text-white p-[20px] rounded-[10px];
   }
 
   .info-section {
-    @apply text-white p-[20px] rounded-[10px] m-auto;
+    @apply text-white p-[20px] rounded-[10px];
   }
 }

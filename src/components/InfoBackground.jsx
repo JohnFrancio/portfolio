@@ -33,7 +33,7 @@ function InfoBackground({ position }) {
     <div className="absolute top-[25%] w-[80%] left-0 right-0 mx-auto flex flex-row gap-56" style={{ transform: `translateX(${-position * 100}vw)` }}>
       {/* Project Section */}
       {/* Introduction */}
-      <div className="info-section-wbg w-[80%] lg:w-[100%] relative flex-shrink-0">
+      <div className="info-section w-[100%] relative flex-shrink-0">
         <p>Hello, I'm <span className="font-poppins text-2xl animate-pulse">John Francio</span>, a Frontend JavaScript Developer</p>
         <p>Use the arrows to check out my projects as you explore space!</p>
         <p>Lets GO!!!</p>
