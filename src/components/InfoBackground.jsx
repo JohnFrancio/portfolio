@@ -9,7 +9,7 @@ function InfoBackground({ position }) {
     {
       name: "Drone",
       image: "/assets/Pdrone.png",
-      descri: "Discover our premium range of drones designed to capture breathtaking aerial views. Whether you're a professional filmmaker or a hobbyist, our drones offer cutting-edge technology for smooth, high-resolution footage, ensuring you never miss a moment. Explore our collection and elevate your perspective with the best tools for stunning aerial photography and videography.",
+      descri: "Discover our premium range of drones designed to capture breathtaking aerial views. Whether you're a professional filmmaker or a hobbyist, our drones offer cutting-edge technology for smooth, high-resolution footage, ensuring you never miss a moment. Explore our collection and elevate your perspective with the best tools for stunning aerial photography.",
       date: "2024",
       link: "https://drone-two-liard.vercel.app",
     },
@@ -56,9 +56,9 @@ function InfoBackground({ position }) {
             <img className="h-64 object-cover" src={projects[index].image} alt={projects[index].name} />
           </div>
           <div className="w-[45%]">
-            <p className="font-light font-poppins">{projects[index].descri}</p>
+            <p className="text-[17px] font-light font-poppins">{projects[index].descri}</p>
             <h3 className="underline font-bold text-xl font-doto">Link:</h3>
-            <a href={projects[index].link} className="font-light font-poppins">{projects[index].link}</a>
+            <a href={projects[index].link} className="animate-pulse font-light font-poppins">{projects[index].link}</a>
           </div>
         </div>
       </div>
