@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <div className="font-doto font-bold text-xl w-[100vw] h-[100vh] relative">
+    <div className="font-doto font-bold text-xl w-[100vw] h-[100vh] relative select-none">
       <Canvas camera={{ position: [0, 0, 1] }}>
         <SpaceShip position={position} />
         <Stars />
