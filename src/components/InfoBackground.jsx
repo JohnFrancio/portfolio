@@ -41,7 +41,7 @@ function InfoBackground({ position }) {
       </div>
 
       {/* Project */}
-      <div className="text-white w-[100%] -top-20 relative flex-shrink-0">
+      <div className="text-white w-[100%] -top-20 relative hidden md:block flex-shrink-0">
         <h1 className="text-2xl text-center font-poppins mb-3">My Projects</h1>
         <div className="flex flex-row justify-center items-center gap-2">
           <div className="bg-bg_info text-white p-[20px] rounded-[10px] flex flex-col gap-4">
